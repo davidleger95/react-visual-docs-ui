@@ -1,0 +1,30 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+}
+
+tr {
+  padding: 5px 0;
+
+}
+
+tr:first-child, tr:last-child {
+  border-bottom: 1px solid lightgrey;
+}
+
+th {
+  text-align: left;
+  padding: 0;
+  border-spacing: 0;
+  font-size: 0.8em;
+  padding: 5px 10px;
+  color: grey;
+}
+
+td {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75em;
+  padding: 5px 10px;
+  font-weight: 600;
+}

@@ -1,0 +1,25 @@
+.footer {
+  background-color: #4a4a4a;
+  color: #F3F4F5;
+  padding: 0.25em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+}
+
+.file-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  opacity: 0.5;
+}
+
+.stat-item {
+  display: inline;
+}
+
+.stat-item:not(:last-child)::after {
+  content: " / "
+}

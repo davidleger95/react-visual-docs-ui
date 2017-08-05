@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "project": {
+      "name": "todo-list-app",
+      "stats": {
+        "files": [
+          {
+            "type": "react-component",
+            "label": "React Components",
+            "count": 3
+          },
+          {
+            "type": "node-module",
+            "label": "Node Modules",
+            "count": 3
+          }
+        ]
+      }
+    }
+  },
+  "docs": {
+    "src/App.js": {
+      "description": "",
+      "methods": [
+        {
+          "name": "thisIsAMethod",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "isCompleted": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "toggleCompleted": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "text": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "style": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "order": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "moduleType": "react-component",
+      "filePath": "src/App.js"
+    },
+    "src/index.js": {
+      "moduleType": "js",
+      "filePath": "src/index.js"
+    },
+    "src/registerServiceWorker.js": {
+      "moduleType": "js",
+      "filePath": "src/registerServiceWorker.js"
+    }
+  }
+}

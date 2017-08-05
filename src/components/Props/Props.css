@@ -1,0 +1,42 @@
+.required {
+  color: red;
+}
+
+.tag {
+  color: white;
+  display: inline-block;
+  padding: 4px 4px;
+  background-color: #4990E2;
+  border-radius: 3px;
+  line-height: 1em;
+  color: #fff;
+  font-weight: 600;
+  min-width: 70px;
+  text-align: center;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+
+.bool {
+  background-color: #F39A06;
+}
+
+.func {
+  background-color: #4990E2;
+}
+
+.string {
+  background-color: #45BD7A;
+}
+
+.object {
+  background-color: #9012FE;
+}
+
+.number {
+  background-color: #DFCE00;
+}
+
+.array {
+  background-color: #F4156E;
+}

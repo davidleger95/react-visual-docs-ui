@@ -1,0 +1,31 @@
+.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+circle {
+  stroke: #333;
+  stroke-width: 1.5px;
+}
+
+circle.reactComponent {
+	fill: #4990E2;
+}
+
+circle.nodeModule {
+	fill: #6ACA00;
+}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
+.Chart {
+  border: 1px solid red;
+  margin-top: 35px;
+  width: calc(100vw - 502px);
+  height: calc(100vh - 60px);
+}

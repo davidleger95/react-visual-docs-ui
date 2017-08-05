@@ -1,0 +1,33 @@
+.doc-page {
+  position: fixed;
+  right: 0;
+  top: 2em;
+  bottom: 1.2em;
+  overflow-y: auto;
+  background-color: #fff;
+  z-index: 0;
+
+  width: 450px;
+  padding: 25px;
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.title-block {
+  padding-bottom: 10px;
+}
+
+.title {
+  font-size: 1.2em;
+}
+
+.module-type {
+  display: inline;
+  padding: 0.25em 0.5em;
+  background-color: #4990E2;
+  border-radius: 3px;
+  font-size: 0.8em;
+  color: #fff;
+  font-weight: 400;
+  text-transform: uppercase;
+}
