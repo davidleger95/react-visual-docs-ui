@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, IndexRoute } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import DocPage from './components/DocPage';
 import DiGraph from './components/Chart/DiGraph';
-
-
-import fetch from 'isomorphic-fetch';
-
-import routes from './routes';
 
 import './css/App.css';
 

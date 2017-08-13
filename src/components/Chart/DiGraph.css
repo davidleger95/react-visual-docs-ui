@@ -17,6 +17,10 @@ circle.nodeModule {
 	fill: #6ACA00;
 }
 
+circle.js {
+	fill: gold;
+}
+
 text {
   font: 10px sans-serif;
   pointer-events: none;
@@ -24,7 +28,7 @@ text {
 }
 
 .Chart {
-  border: 1px solid red;
+  // border: 1px solid red;
   margin-top: 35px;
   width: calc(100vw - 502px);
   height: calc(100vh - 60px);

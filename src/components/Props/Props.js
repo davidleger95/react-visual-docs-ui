@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './Props.css';
 import '../Table/Table.css';
@@ -44,9 +45,11 @@ class Props extends Component {
   }
 
   render() {
+    const { props } = this.props;
+    const propsCount = Object.keys(props).length;
     return (
       <div className="props">
-        <h3>Props ([5])</h3>
+        <h3>Props ({propsCount})</h3>
         {this.renderPropsTable()}
       </div>
     );

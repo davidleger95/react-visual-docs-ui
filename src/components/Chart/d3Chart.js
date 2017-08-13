@@ -4,8 +4,10 @@ function generateNodesFromLinks(links) {
   const nodes = {};
   // Compute the distinct nodes from the links.
   links.forEach(function(link) {
+    console.log('link', link.source, link.sourceDisplayName, link);
     link.source = nodes[link.source] || (nodes[link.source] = {
   		name: link.source,
+      displayName: link.sourceDisplayName,
   		type: link.sourceType
   	});
     link.target = nodes[link.target] || (nodes[link.target] = {
@@ -76,7 +78,10 @@ d3Chart.create = function (element, props, state) {
   var text = svg.append("g").selectAll("text")
       .data(force.nodes())
     .enter().append("text")
-      .text(d => d.name)
+      .text(d => {
+        console.log(d);
+        return d.name;
+      })
       .attr({ x: 8, y: '0.31em' });
 
   function tick() {

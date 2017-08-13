@@ -5,12 +5,12 @@
       "stats": {
         "files": [
           {
-            "type": "react-component",
+            "type": "reactComponent",
             "label": "React Components",
             "count": 3
           },
           {
-            "type": "node-module",
+            "type": "nodeModule",
             "label": "Node Modules",
             "count": 3
           }
@@ -21,9 +21,75 @@
   "docs": {
     "src/App.js": {
       "description": "",
+      "methods": [],
+      "moduleType": "reactComponent",
+      "filePath": "/src/App",
+      "dependencies": [
+        {
+          "moduleType": "nodeModule",
+          "name": "react",
+          "path": "react"
+        },
+        {
+          "moduleType": "jsx",
+          "name": "App",
+          "path": "/src/App.css"
+        },
+        {
+          "moduleType": "jsx",
+          "name": "TimeDisplay",
+          "path": "/src/components/TimeDisplay"
+        }
+      ]
+    },
+    "src/components/Button.js": {
+      "description": "",
+      "methods": [],
+      "props": {
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "text": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "moduleType": "reactComponent",
+      "filePath": "/src/components/Button",
+      "dependencies": [
+        {
+          "moduleType": "nodeModule",
+          "name": "react",
+          "path": "react"
+        }
+      ]
+    },
+    "src/components/DisplayLog.js": {
+      "description": "",
       "methods": [
         {
-          "name": "thisIsAMethod",
+          "name": "renderLog",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderEmpty",
           "docblock": null,
           "modifiers": [],
           "params": [],
@@ -31,39 +97,14 @@
         }
       ],
       "props": {
-        "isCompleted": {
+        "log": {
           "type": {
-            "name": "bool"
-          },
-          "required": false,
-          "description": "",
-          "defaultValue": {
-            "value": "false",
-            "computed": false
-          }
-        },
-        "toggleCompleted": {
-          "type": {
-            "name": "func"
-          },
-          "required": true,
-          "description": ""
-        },
-        "text": {
-          "type": {
-            "name": "string"
-          },
-          "required": true,
-          "description": ""
-        },
-        "style": {
-          "type": {
-            "name": "object"
+            "name": "array"
           },
           "required": false,
           "description": ""
         },
-        "order": {
+        "quote": {
           "type": {
             "name": "number"
           },
@@ -71,16 +112,227 @@
           "description": ""
         }
       },
-      "moduleType": "react-component",
-      "filePath": "src/App.js"
+      "moduleType": "reactComponent",
+      "filePath": "/src/components/DisplayLog",
+      "dependencies": [
+        {
+          "moduleType": "nodeModule",
+          "name": "react",
+          "path": "react"
+        },
+        {
+          "moduleType": "jsx",
+          "name": "formatTime",
+          "path": "/src/utils/formatTime"
+        }
+      ]
+    },
+    "src/components/TimeDisplay.js": {
+      "description": "",
+      "displayName": "TimeDisplay",
+      "methods": [
+        {
+          "name": "keyCommands",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "logTime",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "newTime",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "clearLog",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "toggleOn",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "resetTime",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderControls",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "time": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": ""
+        }
+      },
+      "moduleType": "reactComponent",
+      "filePath": "/src/components/TimeDisplay",
+      "dependencies": [
+        {
+          "moduleType": "nodeModule",
+          "name": "react",
+          "path": "react"
+        },
+        {
+          "moduleType": "jsx",
+          "name": "DisplayLog",
+          "path": "/src/components/DisplayLog"
+        },
+        {
+          "moduleType": "jsx",
+          "name": "Button",
+          "path": "/src/components/Button"
+        },
+        {
+          "moduleType": "jsx",
+          "name": "formatTime",
+          "path": "/src/utils/formatTime"
+        }
+      ]
     },
     "src/index.js": {
       "moduleType": "js",
-      "filePath": "src/index.js"
+      "filePath": "/src/index",
+      "dependencies": [
+        {
+          "moduleType": "nodeModule",
+          "name": "react",
+          "path": "react"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "react-dom",
+          "path": "react-dom"
+        },
+        {
+          "moduleType": "jsx",
+          "name": "App",
+          "path": "/src/App"
+        },
+        {
+          "moduleType": "jsx",
+          "name": "index",
+          "path": "/src/scss/index.css"
+        }
+      ]
     },
-    "src/registerServiceWorker.js": {
+    "src/utils/formatTime.js": {
       "moduleType": "js",
-      "filePath": "src/registerServiceWorker.js"
+      "filePath": "/src/utils/formatTime",
+      "dependencies": []
     }
-  }
+  },
+  "dependencyMap": [
+    {
+      "source": "/src/App",
+      "target": "react",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "/src/App",
+      "target": "/src/App.css",
+      "sourceType": "reactComponent",
+      "targetType": "jsx"
+    },
+    {
+      "source": "/src/App",
+      "target": "/src/components/TimeDisplay",
+      "sourceType": "reactComponent",
+      "targetType": "jsx"
+    },
+    {
+      "source": "/src/components/Button",
+      "target": "react",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "/src/components/DisplayLog",
+      "target": "react",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "/src/components/DisplayLog",
+      "target": "/src/utils/formatTime",
+      "sourceType": "reactComponent",
+      "targetType": "jsx"
+    },
+    {
+      "source": "/src/components/TimeDisplay",
+      "target": "react",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule",
+      "sourceDisplayName": "TimeDisplay"
+    },
+    {
+      "source": "/src/components/TimeDisplay",
+      "target": "/src/components/DisplayLog",
+      "sourceType": "reactComponent",
+      "targetType": "jsx",
+      "sourceDisplayName": "TimeDisplay"
+    },
+    {
+      "source": "/src/components/TimeDisplay",
+      "target": "/src/components/Button",
+      "sourceType": "reactComponent",
+      "targetType": "jsx",
+      "sourceDisplayName": "TimeDisplay"
+    },
+    {
+      "source": "/src/components/TimeDisplay",
+      "target": "/src/utils/formatTime",
+      "sourceType": "reactComponent",
+      "targetType": "jsx",
+      "sourceDisplayName": "TimeDisplay"
+    },
+    {
+      "source": "/src/index",
+      "target": "react",
+      "sourceType": "js",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "/src/index",
+      "target": "react-dom",
+      "sourceType": "js",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "/src/index",
+      "target": "/src/App",
+      "sourceType": "js",
+      "targetType": "jsx"
+    },
+    {
+      "source": "/src/index",
+      "target": "/src/scss/index.css",
+      "sourceType": "js",
+      "targetType": "jsx"
+    }
+  ]
 }

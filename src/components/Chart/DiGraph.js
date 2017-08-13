@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import { dependencyMap } from '../../getData';
 import d3Chart from './d3Chart';
 
 import './DiGraph.css';
@@ -8,16 +9,7 @@ import './DiGraph.css';
 class DiGraph extends Component {
 
   static defaultProps = {
-    data: [
-      { "source": "TodoItem.js", "target": "moment", "sourceType": "reactComponent", "targetType": "nodeModule" },
-      { "source": "TodoItem.js", "target": "react", "sourceType": "reactComponent", "targetType": "nodeModule" },
-      { "source": "TodoItem.js", "target": "Checkbox.js", "sourceType": "reactComponent", "targetType": "reactComponent" },
-      { "source": "TodoList.js", "target": "react", "sourceType": "reactComponent", "targetType": "nodeModule" },
-      { "source": "Checkbox.js", "target": "react", "sourceType": "reactComponent", "targetType": "nodeModule" },
-      { "source": "TodoList.js", "target": "TodoItem.js", "sourceType": "reactComponent", "targetType": "reactComponent" },
-      { "source": "TodoList.js", "target": "Checkbox.js", "sourceType": "reactComponent", "targetType": "reactComponent" },
-      { "source": "TodoList.js", "target": "lodash", "sourceType": "reactComponent", "targetType": "nodeModule" }
-    ]
+    data: dependencyMap
   };
 
   openDocs(id) {
