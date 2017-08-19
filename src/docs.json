@@ -31,14 +31,19 @@
           "path": "react"
         },
         {
-          "moduleType": "jsx",
           "name": "App",
           "path": "/src/App.css"
         },
         {
-          "moduleType": "jsx",
           "name": "TimeDisplay",
           "path": "/src/components/TimeDisplay"
+        }
+      ],
+      "dependants": [
+        {
+          "path": "/src/components/TimeDisplay",
+          "name": "TimeDisplay",
+          "moduleType": "reactComponent"
         }
       ]
     },
@@ -76,7 +81,8 @@
           "name": "react",
           "path": "react"
         }
-      ]
+      ],
+      "dependants": []
     },
     "src/components/DisplayLog.js": {
       "description": "",
@@ -121,9 +127,46 @@
           "path": "react"
         },
         {
-          "moduleType": "jsx",
           "name": "formatTime",
           "path": "/src/utils/formatTime"
+        }
+      ],
+      "dependants": [
+        {
+          "path": "/src/utils/formatTime",
+          "name": "/src/utils/formatTime",
+          "moduleType": "js"
+        }
+      ]
+    },
+    "src/index.js": {
+      "moduleType": "js",
+      "filePath": "/src/index",
+      "dependencies": [
+        {
+          "moduleType": "nodeModule",
+          "name": "react",
+          "path": "react"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "react-dom",
+          "path": "react-dom"
+        },
+        {
+          "name": "App",
+          "path": "/src/App"
+        },
+        {
+          "name": "index",
+          "path": "/src/scss/index.css"
+        }
+      ],
+      "dependants": [
+        {
+          "path": "/src/App",
+          "name": "/src/App",
+          "moduleType": "reactComponent"
         }
       ]
     },
@@ -197,52 +240,41 @@
           "path": "react"
         },
         {
-          "moduleType": "jsx",
           "name": "DisplayLog",
           "path": "/src/components/DisplayLog"
         },
         {
-          "moduleType": "jsx",
           "name": "Button",
           "path": "/src/components/Button"
         },
         {
-          "moduleType": "jsx",
           "name": "formatTime",
           "path": "/src/utils/formatTime"
         }
-      ]
-    },
-    "src/index.js": {
-      "moduleType": "js",
-      "filePath": "/src/index",
-      "dependencies": [
+      ],
+      "dependants": [
         {
-          "moduleType": "nodeModule",
-          "name": "react",
-          "path": "react"
+          "path": "/src/components/DisplayLog",
+          "name": "/src/components/DisplayLog",
+          "moduleType": "reactComponent"
         },
         {
-          "moduleType": "nodeModule",
-          "name": "react-dom",
-          "path": "react-dom"
+          "path": "/src/components/Button",
+          "name": "/src/components/Button",
+          "moduleType": "reactComponent"
         },
         {
-          "moduleType": "jsx",
-          "name": "App",
-          "path": "/src/App"
-        },
-        {
-          "moduleType": "jsx",
-          "name": "index",
-          "path": "/src/scss/index.css"
+          "path": "/src/utils/formatTime",
+          "name": "/src/utils/formatTime",
+          "moduleType": "js"
         }
       ]
     },
     "src/utils/formatTime.js": {
       "moduleType": "js",
       "filePath": "/src/utils/formatTime",
-      "dependencies": []
+      "dependencies": [],
+      "dependants": []
     }
   },
   "dependencyMap": [
@@ -255,14 +287,12 @@
     {
       "source": "/src/App",
       "target": "/src/App.css",
-      "sourceType": "reactComponent",
-      "targetType": "jsx"
+      "sourceType": "reactComponent"
     },
     {
       "source": "/src/App",
       "target": "/src/components/TimeDisplay",
-      "sourceType": "reactComponent",
-      "targetType": "jsx"
+      "sourceType": "reactComponent"
     },
     {
       "source": "/src/components/Button",
@@ -279,36 +309,7 @@
     {
       "source": "/src/components/DisplayLog",
       "target": "/src/utils/formatTime",
-      "sourceType": "reactComponent",
-      "targetType": "jsx"
-    },
-    {
-      "source": "/src/components/TimeDisplay",
-      "target": "react",
-      "sourceType": "reactComponent",
-      "targetType": "nodeModule",
-      "sourceDisplayName": "TimeDisplay"
-    },
-    {
-      "source": "/src/components/TimeDisplay",
-      "target": "/src/components/DisplayLog",
-      "sourceType": "reactComponent",
-      "targetType": "jsx",
-      "sourceDisplayName": "TimeDisplay"
-    },
-    {
-      "source": "/src/components/TimeDisplay",
-      "target": "/src/components/Button",
-      "sourceType": "reactComponent",
-      "targetType": "jsx",
-      "sourceDisplayName": "TimeDisplay"
-    },
-    {
-      "source": "/src/components/TimeDisplay",
-      "target": "/src/utils/formatTime",
-      "sourceType": "reactComponent",
-      "targetType": "jsx",
-      "sourceDisplayName": "TimeDisplay"
+      "sourceType": "reactComponent"
     },
     {
       "source": "/src/index",
@@ -325,14 +326,37 @@
     {
       "source": "/src/index",
       "target": "/src/App",
-      "sourceType": "js",
-      "targetType": "jsx"
+      "sourceType": "js"
     },
     {
       "source": "/src/index",
       "target": "/src/scss/index.css",
-      "sourceType": "js",
-      "targetType": "jsx"
+      "sourceType": "js"
+    },
+    {
+      "source": "/src/components/TimeDisplay",
+      "target": "react",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule",
+      "sourceDisplayName": "TimeDisplay"
+    },
+    {
+      "source": "/src/components/TimeDisplay",
+      "target": "/src/components/DisplayLog",
+      "sourceType": "reactComponent",
+      "sourceDisplayName": "TimeDisplay"
+    },
+    {
+      "source": "/src/components/TimeDisplay",
+      "target": "/src/components/Button",
+      "sourceType": "reactComponent",
+      "sourceDisplayName": "TimeDisplay"
+    },
+    {
+      "source": "/src/components/TimeDisplay",
+      "target": "/src/utils/formatTime",
+      "sourceType": "reactComponent",
+      "sourceDisplayName": "TimeDisplay"
     }
   ]
 }

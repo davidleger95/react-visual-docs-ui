@@ -16,6 +16,10 @@
   text-transform: uppercase;
 }
 
+.null {
+  background-color: lightgrey;
+}
+
 .bool {
   background-color: #F39A06;
 }

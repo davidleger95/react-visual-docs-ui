@@ -29,7 +29,10 @@ text {
 
 .Chart {
   // border: 1px solid red;
-  margin-top: 35px;
   width: calc(100vw - 502px);
   height: calc(100vh - 60px);
+}
+
+.ChartWrapper {
+  margin-top: 50px;
 }

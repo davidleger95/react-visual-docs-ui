@@ -24,7 +24,7 @@ function generateNodesFromLinks(links) {
 
 const d3Chart = {};
 
-d3Chart.create = function (element, props, state) {
+d3Chart.create = function (element, props, state, setRoute) {
   const nodes = generateNodesFromLinks(state.links);
   var svg = d3.select(element)
               .append("svg")
@@ -67,17 +67,19 @@ d3Chart.create = function (element, props, state) {
   var circle = svg.append("g").selectAll("circle")
       .data(force.nodes())
   		//.data(["nodeModule", "reactComponent"])
-    .enter().append("circle")
-      .attr({
-        r: 5,
-        'node-id': '12345',
-        class: d => `node ${d.type}`
-      })
-      .call(force.drag);
+      .enter().append("circle")
+        .attr({
+          r: 5,
+          'node-id': '12345',
+          class: d => `node ${d.type}`
+        })
+        .call(force.drag);
+
+      circle.on('click', setRoute);
 
   var text = svg.append("g").selectAll("text")
       .data(force.nodes())
-    .enter().append("text")
+      .enter().append("text")
       .text(d => {
         console.log(d);
         return d.name;

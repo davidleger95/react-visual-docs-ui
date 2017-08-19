@@ -1,0 +1,8 @@
+.required {
+  color: red;
+}
+
+
+tr.nodeModule {
+  opacity: 0.5;
+}

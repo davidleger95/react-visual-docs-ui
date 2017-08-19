@@ -6,7 +6,15 @@
 
 tr {
   padding: 5px 0;
+  transition: background-color ease-in-out 100ms;
+}
 
+tr:nth-child(odd):not(:first-child) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+tr:hover:not(:first-child) {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 tr:first-child, tr:last-child {

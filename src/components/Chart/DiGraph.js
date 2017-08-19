@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
+import { withRouter } from 'react-router-dom'
+import { filter } from 'lodash';
 import { dependencyMap } from '../../getData';
 import d3Chart from './d3Chart';
 
@@ -8,9 +9,28 @@ import './DiGraph.css';
 
 class DiGraph extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: dependencyMap
+    }
+  }
   static defaultProps = {
     data: dependencyMap
   };
+
+  onChange = ({ target }) => {
+    const data = filter(this.state.data, function(o) { return o.sourceType !== 'nodeModule' && o.targetType !== 'nodeModule'; });
+    this.setState({ data });
+    console.log(this.state.data, data);
+  };
+
+  setRoute(d) {
+    withRouter(({history}) => {
+      history.push(`/docs#${d.name}`);
+      alert('hello');
+    })();
+  }
 
   openDocs(id) {
     // TODO update to receive node id on call insode d3.
@@ -23,8 +43,7 @@ class DiGraph extends Component {
   }
 
   createChart = () => {
-    //alert('resize');
-    const el = ReactDOM.findDOMNode(this);
+    const el = this.chart;
     d3Chart.update(el, {
       width: el.offsetWidth,
       height: el.offsetHeight
@@ -32,12 +51,12 @@ class DiGraph extends Component {
   }
 
   componentDidMount() {
-    const el = ReactDOM.findDOMNode(this);
+    const el = this.chart;
     d3Chart.create(el, {
       width: el.offsetWidth,
       height: el.offsetHeight,
       openDocs: this.openDocs // NOTE pass in actions to be performed on events in chart
-    }, this.getChartState());
+    }, this.getChartState(), this.setRoute);
 
     //window.addEventListener('resize', this.createChart);
   }
@@ -48,13 +67,25 @@ class DiGraph extends Component {
 
   getChartState = () => {
     return {
-      links: this.props.data
+      links: this.state.data
     };
+  }
+
+  renderControls() {
+    return (
+      <div>
+        <input name="hideNodeModules" type="checkbox" onChange={this.onChange} value={this.state.hideNodeModules} />
+        <label htmlFor="hideNodeModules">Hide Node Modules</label>
+      </div>
+    );
   }
 
   render() {
     return (
-      <div className="Chart"></div>
+      <div className="ChartWrapper">
+        {this.renderControls()}
+        <div className="Chart" ref={chart => this.chart = chart}></div>
+      </div>
     );
   }
 }
