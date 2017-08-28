@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+import { includes } from 'lodash';
 
 import './Dependencies.css';
 import '../Table/Table.css';
@@ -7,9 +10,15 @@ import '../Table/Table.css';
 class Dependencies extends Component {
   static displayName = 'Dependencies';
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    dependencies: PropTypes.object.isRequired,
     dependants: PropTypes.object.isRequired,
+    availableFiles: PropTypes.array.isRequired
   };
+
+  exists = (path) => {
+    console.log(includes(this.props.availableFiles, path), path, this.props.availableFiles);
+    return includes(this.props.availableFiles, path);
+  }
 
   renderTable = (data) => {
 
@@ -17,7 +26,12 @@ class Dependencies extends Component {
       return (
         <tr className={item.moduleType}>
           <td>{item.name}</td>
-          <td>{item.moduleType === 'nodeModule' && 'node_modules/'}{item.path}</td>
+          <td>
+            <Link to={`/docs#${item.path}`} className={this.exists(item.path) ? '' : 'disabled'}>
+              {item.moduleType === 'nodeModule' && 'node_modules/'}
+              {item.path}
+            </Link>
+          </td>
         </tr>
       );
     });

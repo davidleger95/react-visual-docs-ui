@@ -18,10 +18,17 @@ class Props extends Component {
       if (props.hasOwnProperty(key)) {
         rows.push(
           <tr key={key}>
-            <td className="required">{props[key].required && '*'}</td>
+            <td className="required">
+              <span title="Prop is required.">{props[key].required && '*'}</span>
+            </td>
             <td>{key}</td>
             <td>
-              <span className={`tag ${props[key].type.name}`}>{props[key].type.name}</span>
+              {
+                props[key].type &&
+                <span className={`tag ${props[key].type.name}`}>
+                  {props[key].type.name}
+                </span>
+              }
             </td>
             <td>{props[key].defaultValue ? props[key].defaultValue.value : '--'}</td>
           </tr>

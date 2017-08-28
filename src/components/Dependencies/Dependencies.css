@@ -3,6 +3,21 @@
 }
 
 
-tr.nodeModule {
+tr.nodeModule > :last-child {
   opacity: 0.5;
+}
+
+a.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  color: #000;
+  text-decoration: none;
+}
+
+tr:not(.nodeModule) a.disabled::after {
+  content: "[!]";
+  color: red;
+  display: inline-block;
+  margin-left: 0.5em;
 }

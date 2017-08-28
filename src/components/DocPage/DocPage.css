@@ -1,16 +1,77 @@
 .doc-page {
-  position: fixed;
-  right: 0;
-  top: 2em;
-  bottom: 1.2em;
-  overflow-y: auto;
   background-color: #fff;
-  z-index: 0;
-
-  width: 450px;
+  width: 500px;
   padding: 25px;
-
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+.doc-page-wrapper {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  overflow: visible;
+
+  margin-top: 40px;
+
+  transition: transform 200ms ease-in-out;
+}
+
+.doc-page-wrapper[data-open=false] {
+  transform: translateX(500px);
+}
+
+.doc-page-btn {
+  position: absolute;
+  left: -3em;
+  top: 50%;
+  border-radius: 3em 0 0 3em;
+  border: none;
+  height: 6em;
+  width: 3em;
+  background: #fff;
+  box-shadow: -4px 0 15px -5px rgba(0,0,0, 0.2);
+  transition: transform 100ms ease-in-out;
+  padding-right: 3em;
+  cursor: pointer;
+}
+
+.doc-page-btn:hover {
+  transform: translateX(-0.5em);
+}
+
+.doc-page-btn:focus {
+  outline: none;
+}
+
+.doc-page-btn::before, .doc-page-btn::after,
+.all-files-link::before, .all-files-link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 0.25em;
+  width: 1.25em;
+  border-radius: 20px;
+  left: 1.25em;
+  top: calc(50% - 0.1em);
+  transform-origin: left;
+  transform: rotate(-45deg) translate(-0.1em, 0.1em);
+  background: #666;
+}
+
+.doc-page-btn::after, .all-files-link::after {
+  transform: rotate(45deg);
+}
+
+.doc-page-wrapper[data-open=true] .doc-page-btn::before {
+  transform-origin: right;
+  transform: rotate(-45deg) translate(0.1em, -0.1em);
+}
+
+.doc-page-wrapper[data-open=true] .doc-page-btn::after {
+  transform-origin: right;
+  transform: rotate(45deg);
 }
 
 .title-block {
@@ -30,4 +91,45 @@
   color: #fff;
   font-weight: 400;
   text-transform: uppercase;
+}
+
+.module-type.js {
+  background-color: gold;
+  color: black;
+}
+
+.all-files-link {
+  position: relative;
+  text-decoration: none;
+  color: #444;
+  box-sizing: border-box;
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+}
+
+.all-files-link::before, .all-files-link::after {
+  left: 0;
+  top: 1.5em;
+  font-size: 0.4em;
+  width: 1.1em;
+  border-radius: 0;
+}
+
+.all-files-link:hover {
+  text-decoration: underline;
+}
+
+.nav-divider {
+  width: calc(100% + 50px);
+  margin: 20px -25px;
+  opacity: 0.2;
+}
+
+.file-list {
+  padding-left: 1.5em;
+}
+
+.file-list li a {
+  display: block;
+  padding: 0.25em 0;
 }

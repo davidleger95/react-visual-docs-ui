@@ -6,7 +6,7 @@ import '../Table/Table.css';
 
 class Methods extends Component {
   static propTypes = {
-    data: PropTypes.object
+    data: PropTypes.array
   };
 
   renderPropsTable = () => {
@@ -19,7 +19,7 @@ class Methods extends Component {
           <td>
             <span className={`tag ${method.returns === null && 'null'}`}>{`${method.returns}`}</span>
           </td>
-          <td>{method.params ? method.params.map(i => `${i.name}: ${i.type}; `) : '--'}</td>
+          <td>{method.params.length ? method.params.map(i => `${i.name}: ${i.type}`) : '--'}</td>
         </tr>
       );
     });

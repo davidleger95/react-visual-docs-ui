@@ -16,9 +16,33 @@ h1 {
   margin: 0;
   font-size: 1em;
   font-weight: 600;
+  flex-grow: 1;
 }
 
 .brand {
   text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.time {
+  float: right;
+  font-style: italic;
+  text-align: right;
+}
+
+.time span {
+  opacity: 0.75;
+  font-size: 0.5em;
+  display: block;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.version {
+  font-style: italic;
+  font-weight: 100;
+  margin-left: 0.5em;
+  font-size: 0.8em;
   opacity: 0.5;
 }

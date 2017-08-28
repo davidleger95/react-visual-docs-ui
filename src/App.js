@@ -3,14 +3,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './components/Home';
 import DocPage from './components/DocPage';
-import DiGraph from './components/Chart/DiGraph';
+import DiGraph from './components/Chart/ForceGraph';
 
 import './css/App.css';
 
 import data from './docs.json';
-// const appHistory = useRouterHistory(createBrowserHistory)({ queryKey: false });
 
 class App extends Component {
 
@@ -23,10 +21,9 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <div>
+          <div className="app-wrapper">
             <Route path="*" component={Header} />
             <Route path="*" component={DiGraph} />
-            <Route exact path="/" component={Home} />
             <Route path="/docs" component={DocPage} />
             <Route path="*" component={Footer} />
           </div>

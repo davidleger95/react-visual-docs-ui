@@ -7,6 +7,8 @@ import Methods from '../Methods';
 import Dependencies from '../Dependencies';
 import { docs } from '../../getData';
 
+import EmptyState from './EmptyState';
+import FileList from './FileList';
 import './DocPage.css';
 
 class DocPage extends Component {
@@ -16,7 +18,8 @@ class DocPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      doc: {}
+      doc: {},
+      isOpen: true
     };
   }
 
@@ -34,60 +37,76 @@ class DocPage extends Component {
   }
 
   updateDocs(path) {
-    const currentDoc = docs[path]
-    if (currentDoc) {
-      this.setState({ ...currentDoc });
-    }  if (true) {  // NOTE only for testing
+    const currentDoc = docs[path] || {}
+
+    this.setState({ doc: currentDoc });
+
+    if (true) {  // NOTE only for testing
       const paths = Object.keys(docs);
       this.setState({ paths });
     }
   }
 
-  renderFilesList() {
-    return this.state.paths.map((path, key) => {
-      return (
-        <li key={key}>
-          <Link to={`/docs#${path}`}>{path}</Link>
-        </li>
-      );
-    })
-  }
 
-  renderEmptyState() {
-    return (
-      <div className="empty-state">
-        <h2>Error</h2>
-        <p>File <code>'{this.props.location.hash.slice(1)}'</code> does not exist.</p>
-        <hr />
-        <h3>Availible Files</h3>
-        <ul>
-          {this.renderFilesList()}
-        </ul>
-      </div>
-    );
+
+  handleBackClick() {
+    this.setState({ filePath: undefined })
   }
 
   renderDocs() {
-    const { filePath, moduleType, props, methods, dependencies, dependants } = this.state;
-    console.log(this.state);
+    const {
+      filePath, moduleType, props,
+      methods, dependencies, dependants
+    } = this.state.doc;
+
+    if (!docs.hasOwnProperty(filePath))
+      return (
+        <EmptyState
+          missingFile={this.props.location.hash.slice(1)}
+          availableFiles={this.state.paths}
+        />
+      );
+
+      console.log('props', props);
+
     return (
       <div>
+        <Link className="all-files-link" to="docs">All Files</Link>
+        <hr className="nav-divider" />
         <div className="title-block">
           <h2 className="title">{filePath}</h2>
-          <h3 className="module-type">{moduleType}</h3>
+          <h3 className={`module-type ${moduleType}`}>{moduleType}</h3>
         </div>
         {props && <Props props={props} />}
-        {methods && <Methods data={methods} />}
-        {dependencies && <Dependencies dependencies={dependencies} dependants={dependants} />}
+        {methods && methods.length > 0 && <Methods data={methods} />}
+        {dependencies &&
+        <Dependencies
+          dependencies={dependencies}
+          dependants={dependants}
+          availableFiles={this.state.paths}
+        />}
       </div>
     );
   }
 
+  renderHome() {
+    return (
+      <div>
+        <h2>Files in your Project ({this.state.paths.length})</h2>
+        <FileList paths={this.state.paths} />
+      </div>
+    );
+  }
+
+  toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
+
   render() {
     return (
-      <div className="doc-page">
-        {this.state.filePath ? this.renderDocs() : this.renderEmptyState()}
-        {this.renderEmptyState()}
+      <div className="doc-page-wrapper" data-open={this.state.isOpen}>
+        <button className="doc-page-btn" onClick={this.toggleOpen}></button>
+        <div className="doc-page">
+          {this.props.location.hash ? this.renderDocs() : this.renderHome()}
+        </div>
       </div>
     );
   }

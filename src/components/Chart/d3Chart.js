@@ -4,7 +4,7 @@ function generateNodesFromLinks(links) {
   const nodes = {};
   // Compute the distinct nodes from the links.
   links.forEach(function(link) {
-    console.log('link', link.source, link.sourceDisplayName, link);
+    //console.log('link', link.source, link.sourceDisplayName, link);
     link.source = nodes[link.source] || (nodes[link.source] = {
   		name: link.source,
       displayName: link.sourceDisplayName,
@@ -81,7 +81,7 @@ d3Chart.create = function (element, props, state, setRoute) {
       .data(force.nodes())
       .enter().append("text")
       .text(d => {
-        console.log(d);
+        //console.log(d);
         return d.name;
       })
       .attr({ x: 8, y: '0.31em' });

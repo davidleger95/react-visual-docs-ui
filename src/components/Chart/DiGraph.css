@@ -28,11 +28,14 @@ text {
 }
 
 .Chart {
-  // border: 1px solid red;
-  width: calc(100vw - 502px);
-  height: calc(100vh - 60px);
+
+  overflow: auto;
 }
 
 .ChartWrapper {
+  flex-grow: 1;
   margin-top: 50px;
+  overflow: auto;
+  width: calc(100vw - 502px);
+  height: calc(100vh - 60px);
 }
