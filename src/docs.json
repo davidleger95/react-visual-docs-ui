@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2017-08-20T19:28:03.666Z",
+    "date": "2017-08-28T01:54:21.893Z",
     "project": {
       "name": "react-visual-docs-ui",
       "version": "0.1.0",
@@ -13,7 +13,8 @@
         "react": "^15.5.4",
         "react-dom": "^15.5.4",
         "react-router": "^4.1.1",
-        "react-router-dom": "^4.1.1"
+        "react-router-dom": "^4.1.1",
+        "react-vis-force": "^0.3.1"
       },
       "devDependencies": {
         "react-scripts": "0.9.5"
@@ -67,16 +68,12 @@
           "path": "src/components/Footer.js"
         },
         {
-          "name": "Home",
-          "path": "src/components/Home.js"
-        },
-        {
           "name": "DocPage",
           "path": "/src/components/DocPage"
         },
         {
-          "name": "DiGraph",
-          "path": "src/components/Chart/DiGraph.js"
+          "name": "ForceGraph",
+          "path": "src/components/Chart/ForceGraph.js"
         },
         {
           "name": "App",
@@ -193,6 +190,63 @@
           "modifiers": [],
           "params": [],
           "returns": null
+        },
+        {
+          "name": "tick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderMarkers",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderPaths",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderCircles",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "nodes",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "renderLabels",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "nodes",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "force",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ nodes, links, width, height }",
+              "type": null
+            }
+          ],
+          "returns": null
         }
       ],
       "props": {
@@ -220,6 +274,11 @@
           "path": "lodash"
         },
         {
+          "moduleType": "nodeModule",
+          "name": "d3",
+          "path": "d3"
+        },
+        {
           "name": "getData",
           "path": "src/getData.js"
         },
@@ -228,8 +287,124 @@
           "path": "src/components/Chart/d3Chart.js"
         },
         {
+          "name": "utils",
+          "path": "src/components/Chart/utils.js"
+        },
+        {
           "name": "DiGraph",
           "path": "/src/components/Chart/DiGraph.css"
+        }
+      ],
+      "dependants": []
+    },
+    "src/components/Chart/ForceGraph.js": {
+      "filePath": "src/components/Chart/ForceGraph.js",
+      "moduleType": "reactComponent",
+      "description": "",
+      "methods": [
+        {
+          "name": "onDragStart",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ id }",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "onDrag",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ id }",
+              "type": null
+            },
+            {
+              "name": "dragEvent",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "onDragEnd",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ id }",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "handleNodeSelection",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "data": {
+          "defaultValue": {
+            "value": "dependencyMap",
+            "computed": true
+          }
+        }
+      },
+      "dependencies": [
+        {
+          "moduleType": "nodeModule",
+          "name": "react",
+          "path": "react"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "react-router",
+          "path": "react-router"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "react-router-dom",
+          "path": "react-router-dom"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "lodash",
+          "path": "lodash"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "d3",
+          "path": "d3"
+        },
+        {
+          "name": "getData",
+          "path": "src/getData.js"
+        },
+        {
+          "name": "utils",
+          "path": "src/components/Chart/utils.js"
+        },
+        {
+          "name": "DiGraph",
+          "path": "/src/components/Chart/DiGraph.css"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "react-vis-force",
+          "path": "react-vis-force"
         }
       ],
       "dependants": [
@@ -240,12 +415,41 @@
         }
       ]
     },
+    "src/components/Chart/utils.js": {
+      "filePath": "src/components/Chart/utils.js",
+      "moduleType": "js",
+      "dependencies": [],
+      "dependants": [
+        {
+          "name": "src/components/Chart/DiGraph.js",
+          "path": "src/components/Chart/DiGraph.js",
+          "moduleType": "reactComponent"
+        },
+        {
+          "name": "src/components/Chart/ForceGraph.js",
+          "path": "src/components/Chart/ForceGraph.js",
+          "moduleType": "reactComponent"
+        }
+      ]
+    },
     "src/components/Dependencies/Dependencies.js": {
       "filePath": "src/components/Dependencies/Dependencies.js",
       "moduleType": "reactComponent",
       "description": "",
       "displayName": "Dependencies",
       "methods": [
+        {
+          "name": "exists",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "path",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
         {
           "name": "renderTable",
           "docblock": null,
@@ -260,7 +464,7 @@
         }
       ],
       "props": {
-        "data": {
+        "dependencies": {
           "type": {
             "name": "object"
           },
@@ -270,6 +474,13 @@
         "dependants": {
           "type": {
             "name": "object"
+          },
+          "required": true,
+          "description": ""
+        },
+        "availableFiles": {
+          "type": {
+            "name": "array"
           },
           "required": true,
           "description": ""
@@ -285,6 +496,16 @@
           "moduleType": "nodeModule",
           "name": "prop-types",
           "path": "prop-types"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "react-router-dom",
+          "path": "react-router-dom"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "lodash",
+          "path": "lodash"
         },
         {
           "name": "Dependencies",
@@ -314,6 +535,65 @@
       ],
       "dependants": []
     },
+    "src/components/DocPage/EmptyState.js": {
+      "filePath": "src/components/DocPage/EmptyState.js",
+      "moduleType": "reactComponent",
+      "description": "",
+      "methods": [],
+      "dependencies": [
+        {
+          "moduleType": "nodeModule",
+          "name": "react",
+          "path": "react"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "react-router-dom",
+          "path": "react-router-dom"
+        },
+        {
+          "name": "FileList",
+          "path": "src/components/DocPage/FileList.js"
+        }
+      ],
+      "dependants": [
+        {
+          "name": "src/components/DocPage/index.js",
+          "path": "src/components/DocPage/index.js",
+          "moduleType": "reactComponent"
+        }
+      ]
+    },
+    "src/components/DocPage/FileList.js": {
+      "filePath": "src/components/DocPage/FileList.js",
+      "moduleType": "reactComponent",
+      "description": "",
+      "methods": [],
+      "dependencies": [
+        {
+          "moduleType": "nodeModule",
+          "name": "react",
+          "path": "react"
+        },
+        {
+          "moduleType": "nodeModule",
+          "name": "react-router-dom",
+          "path": "react-router-dom"
+        }
+      ],
+      "dependants": [
+        {
+          "name": "src/components/DocPage/EmptyState.js",
+          "path": "src/components/DocPage/EmptyState.js",
+          "moduleType": "reactComponent"
+        },
+        {
+          "name": "src/components/DocPage/index.js",
+          "path": "src/components/DocPage/index.js",
+          "moduleType": "reactComponent"
+        }
+      ]
+    },
     "src/components/DocPage/index.js": {
       "filePath": "src/components/DocPage/index.js",
       "moduleType": "reactComponent",
@@ -332,14 +612,7 @@
           "returns": null
         },
         {
-          "name": "renderFilesList",
-          "docblock": null,
-          "modifiers": [],
-          "params": [],
-          "returns": null
-        },
-        {
-          "name": "renderEmptyState",
+          "name": "handleBackClick",
           "docblock": null,
           "modifiers": [],
           "params": [],
@@ -347,6 +620,20 @@
         },
         {
           "name": "renderDocs",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderHome",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "toggleOpen",
           "docblock": null,
           "modifiers": [],
           "params": [],
@@ -393,6 +680,14 @@
         {
           "name": "getData",
           "path": "src/getData.js"
+        },
+        {
+          "name": "EmptyState",
+          "path": "src/components/DocPage/EmptyState.js"
+        },
+        {
+          "name": "FileList",
+          "path": "src/components/DocPage/FileList.js"
         },
         {
           "name": "DocPage",
@@ -508,11 +803,6 @@
       ],
       "dependants": [
         {
-          "name": "src/App.js",
-          "path": "src/App.js",
-          "moduleType": "reactComponent"
-        },
-        {
           "name": "src/routes.js",
           "path": "src/routes.js",
           "moduleType": "js"
@@ -546,7 +836,7 @@
       "props": {
         "data": {
           "type": {
-            "name": "object"
+            "name": "array"
           },
           "required": false,
           "description": ""
@@ -687,6 +977,11 @@
           "moduleType": "reactComponent"
         },
         {
+          "name": "src/components/Chart/ForceGraph.js",
+          "path": "src/components/Chart/ForceGraph.js",
+          "moduleType": "reactComponent"
+        },
+        {
           "name": "src/components/DocPage/index.js",
           "path": "src/components/DocPage/index.js",
           "moduleType": "reactComponent"
@@ -771,11 +1066,6 @@
       ],
       "dependants": [
         {
-          "name": "src/App.js",
-          "path": "src/App.js",
-          "moduleType": "reactComponent"
-        },
-        {
           "name": "src/routes.js",
           "path": "src/routes.js",
           "moduleType": "js"
@@ -810,19 +1100,13 @@
     },
     {
       "source": "src/App.js",
-      "target": "src/components/Home.js",
-      "sourceType": "reactComponent",
-      "targetType": "reactComponent"
-    },
-    {
-      "source": "src/App.js",
       "target": "/src/components/DocPage",
       "sourceType": "reactComponent",
       "targetType": "css"
     },
     {
       "source": "src/App.js",
-      "target": "src/components/Chart/DiGraph.js",
+      "target": "src/components/Chart/ForceGraph.js",
       "sourceType": "reactComponent",
       "targetType": "reactComponent"
     },
@@ -864,6 +1148,12 @@
     },
     {
       "source": "src/components/Chart/DiGraph.js",
+      "target": "d3",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "src/components/Chart/DiGraph.js",
       "target": "src/getData.js",
       "sourceType": "reactComponent",
       "targetType": "js"
@@ -876,9 +1166,69 @@
     },
     {
       "source": "src/components/Chart/DiGraph.js",
+      "target": "src/components/Chart/utils.js",
+      "sourceType": "reactComponent",
+      "targetType": "js"
+    },
+    {
+      "source": "src/components/Chart/DiGraph.js",
       "target": "/src/components/Chart/DiGraph.css",
       "sourceType": "reactComponent",
       "targetType": "css"
+    },
+    {
+      "source": "src/components/Chart/ForceGraph.js",
+      "target": "react",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "src/components/Chart/ForceGraph.js",
+      "target": "react-router",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "src/components/Chart/ForceGraph.js",
+      "target": "react-router-dom",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "src/components/Chart/ForceGraph.js",
+      "target": "lodash",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "src/components/Chart/ForceGraph.js",
+      "target": "d3",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "src/components/Chart/ForceGraph.js",
+      "target": "src/getData.js",
+      "sourceType": "reactComponent",
+      "targetType": "js"
+    },
+    {
+      "source": "src/components/Chart/ForceGraph.js",
+      "target": "src/components/Chart/utils.js",
+      "sourceType": "reactComponent",
+      "targetType": "js"
+    },
+    {
+      "source": "src/components/Chart/ForceGraph.js",
+      "target": "/src/components/Chart/DiGraph.css",
+      "sourceType": "reactComponent",
+      "targetType": "css"
+    },
+    {
+      "source": "src/components/Chart/ForceGraph.js",
+      "target": "react-vis-force",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
     },
     {
       "source": "src/components/Dependencies/Dependencies.js",
@@ -890,6 +1240,20 @@
     {
       "source": "src/components/Dependencies/Dependencies.js",
       "target": "prop-types",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule",
+      "sourceDisplayName": "Dependencies"
+    },
+    {
+      "source": "src/components/Dependencies/Dependencies.js",
+      "target": "react-router-dom",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule",
+      "sourceDisplayName": "Dependencies"
+    },
+    {
+      "source": "src/components/Dependencies/Dependencies.js",
+      "target": "lodash",
       "sourceType": "reactComponent",
       "targetType": "nodeModule",
       "sourceDisplayName": "Dependencies"
@@ -913,6 +1277,36 @@
       "target": "src/components/Dependencies/Dependencies.js",
       "sourceType": "js",
       "targetType": "reactComponent"
+    },
+    {
+      "source": "src/components/DocPage/EmptyState.js",
+      "target": "react",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "src/components/DocPage/EmptyState.js",
+      "target": "react-router-dom",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "src/components/DocPage/EmptyState.js",
+      "target": "src/components/DocPage/FileList.js",
+      "sourceType": "reactComponent",
+      "targetType": "reactComponent"
+    },
+    {
+      "source": "src/components/DocPage/FileList.js",
+      "target": "react",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
+    },
+    {
+      "source": "src/components/DocPage/FileList.js",
+      "target": "react-router-dom",
+      "sourceType": "reactComponent",
+      "targetType": "nodeModule"
     },
     {
       "source": "src/components/DocPage/index.js",
@@ -955,6 +1349,18 @@
       "target": "src/getData.js",
       "sourceType": "reactComponent",
       "targetType": "js"
+    },
+    {
+      "source": "src/components/DocPage/index.js",
+      "target": "src/components/DocPage/EmptyState.js",
+      "sourceType": "reactComponent",
+      "targetType": "reactComponent"
+    },
+    {
+      "source": "src/components/DocPage/index.js",
+      "target": "src/components/DocPage/FileList.js",
+      "sourceType": "reactComponent",
+      "targetType": "reactComponent"
     },
     {
       "source": "src/components/DocPage/index.js",
